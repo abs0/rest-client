@@ -2,10 +2,10 @@
 //   id "com.github.cr0.macappbundle" version "3.0.1"
 // }
 plugins {
+  id 'java-library'
   id "edu.sc.seis.macAppBundle" version "2.2.1"
 }
 
-apply plugin: 'java'
 apply plugin: 'application'
 
 // Application plugin config:
@@ -37,7 +37,9 @@ repositories {
 }
 
 task fatJar(type: Jar) {
-  baseName = project.name + '-fat'
+  dependsOn(build)
+  archiveBaseName = project.name + '-fat'
+  duplicatesStrategy = DuplicatesStrategy.WARN
 
   manifest {
     attributes(
@@ -47,17 +49,17 @@ task fatJar(type: Jar) {
   }
 
   from {
-    configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
   }
   with jar
 }
 
 dependencies {
-  compile project(':restclient-lib'),
+  api project(':restclient-lib'),
     'org.wiztools:filechooser-abstraction:0.1.0',
     'com.jidesoft:jide-oss:3.6.14',
     'org.swinglabs.swingx:swingx-autocomplete:1.6.5-1',
     'com.fifesoft:rsyntaxtextarea:2.5.8',
     'org.simplericity.macify:macify:1.6'
-  testCompile 'junit:junit:4.+'
+  testImplementation 'junit:junit:4.+'
 }

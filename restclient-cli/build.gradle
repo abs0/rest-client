@@ -1,4 +1,6 @@
-apply plugin: 'java'
+plugins {
+  id 'java-library'
+}
 apply plugin: 'application'
 
 // Application plugin config:
@@ -12,20 +14,22 @@ repositories {
 }
 
 task fatJar(type: Jar) {
-  baseName = project.name + '-fat'
+  dependsOn(build)
+  archiveBaseName = project.name + '-fat'
+  duplicatesStrategy = DuplicatesStrategy.WARN
 
   manifest {
     attributes "Main-Class": "$mainClassName"
   }
 
   from {
-    configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
   }
   with jar
 }
 
 dependencies {
-  compile project(':restclient-lib'),
+  api project(':restclient-lib'),
     'com.google.code.cli-parser:cli:7'
-  testCompile 'junit:junit:4.+'
+  testImplementation 'junit:junit:4.+'
 }

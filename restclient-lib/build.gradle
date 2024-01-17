@@ -1,3 +1,6 @@
+plugins {
+  id 'java-library'
+}
 apply plugin: 'java'
 
 repositories {
@@ -6,7 +9,7 @@ repositories {
 }
 
 dependencies {
-  compile project(':restclient-server'),
+  api project(':restclient-server'),
     'com.google.inject:guice:4.2.0',
     'com.mycila.guice.extensions:mycila-guice-jsr250:4.0.rc1',
     'junit:junit:4.12',
@@ -18,12 +21,12 @@ dependencies {
     'org.codehaus.groovy:groovy-all:2.4.4',
     'net.htmlparser.jericho:jericho-html:3.4',
     'com.github.wiztools:app-update-framework:app-update-0.2.1'
-  compile('com.io7m.xom:xom:1.2.10') {
+  api('com.io7m.xom:xom:1.2.10') {
     exclude group: 'xerces', module: 'xmlParserAPIs'
     exclude group: 'xerces', module: 'xercesImpl'
     exclude group: 'xalan', module: 'xalan'
     exclude group: 'jaxen', module: 'jaxen'
   }
-  testCompile 'junit:junit:4.+',
+  testImplementation 'junit:junit:4.+',
     'com.google.code.gson:gson:2.8.0'
 }
