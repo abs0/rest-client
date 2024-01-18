@@ -2,6 +2,12 @@
 
 ## About
 
+This is a fork of the abandoned WizTools.org RESTClient, with gradle config and dependencies updated to allow running under java 17.
+
+Building of mac specific binaries has been commented out pending macAppBundle support for Gradle >=7.
+
+It is built to target Java 8 or later.
+
 RESTClient is a Java application to test RESTful webservices. It can be used to test variety of HTTP communications. There are two executables:
 
 * GUI version (restclient-ui-X.jar download)
@@ -9,27 +15,17 @@ RESTClient is a Java application to test RESTful webservices. It can be used to 
 
 ### Since 2007
 
-The first version of RESTClient was released late 2007. Since then the tool has been in continuous development. Visit [project news page](https://github.com/wiztools/rest-client/wiki/News) for history of releases.
+The first version of RESTClient was released late 2007. Visit [project news page](https://github.com/wiztools/rest-client/wiki/News) for history of releases.
 
 ### Download / Install
 
-Mac users can use [homebrew](https://brew.sh) to install:
+Release binaries are available from [GitHub releases](https://github.com/abs0/rest-client/releases).
 
-```
-brew cask install wiztools/repo/restclient
-```
-
-Release binaries are available from [GitHub releases](https://github.com/wiztools/rest-client/releases).
-
-Archives of pre-GitHub era release-builds are available at [WizTools.org Download](http://download.wiztools.org/rest-client/archive/index.html).
+For earlier versions see the original [Wiztools readme](https://github.com/wiztools/rest-client)
 
 ### Support
 
-Post your queries in [Google Group mailing list](https://groups.google.com/forum/#!forum/rest-client).
-
-### Book
-
-[![](http://books.wiztools.org/restclient-book/restclient-book-small.jpg)](http://www.amazon.com/dp/B00KEADQF2?tag=wiztooorg-20)
+Feel free to contact me on github :)
 
 ### Screenshot
 
@@ -38,9 +34,3 @@ Post your queries in [Google Group mailing list](https://groups.google.com/forum
 [![](https://farm5.staticflickr.com/4803/45604489274_ea9928ff4b_b.jpg)](https://www.flickr.com/photos/subwiz/45604489274/)
 
 More screenshots here: http://flickr.com/photos/subwiz/tags/restclient/
-
-### Subscribing to New Releases
-
-Releases and product information is published in the following channels:
-
-* [Blog](http://blog.wiztools.org/)
