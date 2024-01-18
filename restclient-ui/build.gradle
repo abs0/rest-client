@@ -3,7 +3,7 @@
 // }
 plugins {
   id 'java-library'
-  id "edu.sc.seis.macAppBundle" version "2.2.1"
+  // id "edu.sc.seis.macAppBundle" version "2.3.0"
 }
 
 apply plugin: 'application'
@@ -13,6 +13,7 @@ mainClassName = 'org.wiztools.restclient.ui.Main'
 applicationName = 'restclient-ui'
 applicationDefaultJvmArgs = ['-Xms128m', '-Xmx512m']
 
+/* Commented out pending macAppBundle supporting Gradle >= 7
 macAppBundle {
   mainClassName = 'org.wiztools.restclient.ui.Main'
   icon = 'src/main/app-resources/rest-client_30.icns'
@@ -30,6 +31,7 @@ macAppBundle {
   // javaXProperties.add("mx1024M")
   // backgroundImage = "doc/macbackground.png"
 }
+*/
 
 repositories {
   mavenLocal()
