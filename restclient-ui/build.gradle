@@ -3,6 +3,9 @@ plugins {
   id 'application'
   // id "edu.sc.seis.macAppBundle" version "2.3.0"
 }
+java {
+  sourceCompatibility = 8
+}
 
 // Application plugin config:
 mainClassName = 'org.wiztools.restclient.ui.Main'

@@ -1,6 +1,9 @@
 plugins {
   id 'java-library'
 }
+java {
+  sourceCompatibility = 8
+}
 
 repositories {
   mavenLocal()
