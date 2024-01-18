@@ -1,6 +1,6 @@
 plugins {
   id 'java'
-  id 'net.researchgate.release' version '2.6.0'
+  id 'net.researchgate.release' version '3.0.2'
 }
 
 repositories {
